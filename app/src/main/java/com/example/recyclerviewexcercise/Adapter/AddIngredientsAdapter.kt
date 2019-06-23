@@ -9,6 +9,7 @@ import com.example.recyclerviewexcercise.Adapter.AddIngredientsAdapter.*
 import com.example.recyclerviewexcercise.R
 import com.example.recyclerviewexcercise.ViewGroupExtensions.inflate
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.header_cell.view.*
 import org.json.JSONArray
 
 class AddIngredientsAdapter(val ingredients: ArrayList<String>): RecyclerView.Adapter<AddIngredientsAdapter.ViewHolder>(){
@@ -20,10 +21,17 @@ class AddIngredientsAdapter(val ingredients: ArrayList<String>): RecyclerView.Ad
     override fun getItemCount() = ingredients.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.bind(ingredients[position])
     }
 
-    class ViewHolder(v: View): RecyclerView.ViewHolder(v){
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+        lateinit var ingredient: String
+
+        fun bind(ingredient:String){
+            this.ingredient = ingredient
+            itemView.header_cell_text_tfd.text = ingredient
+        }
 
     }
 
