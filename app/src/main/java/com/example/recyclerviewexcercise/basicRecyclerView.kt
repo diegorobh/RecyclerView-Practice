@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerviewexcercise.Adapter.AddIngredientsAdapter
+import com.example.recyclerviewexcercise.Model.CompositeItem
 import kotlinx.android.synthetic.main.fragment_basic_recycler_view.*
 
 
@@ -23,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class basicRecyclerView : Fragment() {
 
-    var ingredients = arrayListOf<String>("uno","dos","tres")
+    var ingredients: ArrayList<CompositeItem> = arrayListOf(CompositeItem("ninguno","vegetales",true), CompositeItem("zanahoria","vegetales",false))
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
