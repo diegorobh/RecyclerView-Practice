@@ -2,6 +2,7 @@ package com.example.recyclerviewexcercise.Adapter
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -24,13 +25,21 @@ class AddIngredientsAdapter(val ingredients: ArrayList<String>): RecyclerView.Ad
         holder.bind(ingredients[position])
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         lateinit var ingredient: String
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun bind(ingredient:String){
             this.ingredient = ingredient
             itemView.header_cell_text_tfd.text = ingredient
+        }
+
+        override fun onClick(view: View) {
+            Log.d("clicked: ", ingredient)
         }
 
     }
